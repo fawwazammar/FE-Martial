@@ -5,10 +5,15 @@ const Signup = () => {
   // const userRef = useRef();
   // const passwordRef = useRef();
   // const passwordConfirmRef = useRef();
+  // // const [user, setUser] = useState('');
+  // // const [password, setPassword] = useState('');
   // const [error, setError] = useState('');
+  // // const [userError, setUserError] = useState('');
+  // // const [passwordError, setPasswordError] = useState('');
   // const [loading, setLoading] = useState(false);
+  // // const [hasAccount, setHasAccount] = useState(false);
 
-  // async function handleSubmit(e) {
+  // handleSubmit = async (e) => {
   //   e.preventDefault();
 
   //   if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -18,13 +23,13 @@ const Signup = () => {
   //   try {
   //     setError('');
   //     setLoading(true);
-  //     await signup(emailRef.current.value, passwordRef.current.value);
+  //     await Signup(userRef.current.value, passwordRef.current.value);
   //   } catch {
   //     setError('Failed to create an account');
   //   }
 
   //   setLoading(false);
-  // }
+  // };
 
   return (
     <Container
@@ -41,7 +46,7 @@ const Signup = () => {
                 <Form.Label>Username</Form.Label>
                 <Form.Control
                   type="text"
-                  // ref={userRef}
+                  //  ref={userRef}
                   required
                 />
               </Form.Group>
