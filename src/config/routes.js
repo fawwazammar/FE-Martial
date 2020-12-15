@@ -1,4 +1,5 @@
 // import { Home } from '../pages';
+import { Admin } from '../pages';
 
 const routes = [
   // {
@@ -6,6 +7,11 @@ const routes = [
   //   component: Home,
   //   isPublic: true,
   // },
+  {
+    path: '/',
+    component: Admin,
+    isPublic: true,
+  },
 ];
 
 export default routes;
