@@ -30,6 +30,7 @@ const BottomContent = styled.div`
 const Title = styled.p`
   font-size: 24px;
   font-weight: bold;
+  color: #393e46;
   text-align: center;
 `;
 
@@ -38,12 +39,24 @@ const ContentWrapper = styled.div`
   flex-direction: row;
   margin-bottom: 8px;
   align-items: center;
+  padding: 0px 8px;
+  &:hover {
+    background-color: #e0e1e6;
+    border-radius: 15px;
+    cursor: pointer;
+  }
 `;
 
 const Icon = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 15px;
+`;
+
+const Label = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+  color: #393e46;
 `;
 
 const Sidebar = () => {
@@ -53,21 +66,21 @@ const Sidebar = () => {
         <Title>Administrator</Title>
         <ContentWrapper>
           <Icon src={IconDokter} alt="Icon" />
-          <p>Dokter</p>
+          <Label>Dokter</Label>
         </ContentWrapper>
         <ContentWrapper>
           <Icon src={IconRumahSakit} alt="Icon" />
-          <p>Rumah Sakit</p>
+          <Label>Rumah Sakit</Label>
         </ContentWrapper>
         <ContentWrapper>
           <Icon src={IconObat} alt="Icon" />
-          <p>Obat</p>
+          <Label>Obat</Label>
         </ContentWrapper>
       </TopContent>
       <BottomContent>
         <ContentWrapper>
           <Icon src={IconSignOut} alt="Icon" />
-          <p>Sign Out</p>
+          <Label>Sign Out</Label>
         </ContentWrapper>
       </BottomContent>
     </Container>
