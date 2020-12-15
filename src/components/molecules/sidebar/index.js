@@ -20,11 +20,11 @@ const Container = styled.div`
 `;
 
 const TopContent = styled.div`
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 
 const BottomContent = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 const Title = styled.p`
@@ -38,8 +38,8 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
+  padding: 8px 8px;
   align-items: center;
-  padding: 0px 8px;
   &:hover {
     background-color: #e0e1e6;
     border-radius: 15px;

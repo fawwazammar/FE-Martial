@@ -18,8 +18,8 @@ const PrimaryButton = styled.button`
   }
 `;
 
-const Button = ({ label }) => {
-  return <PrimaryButton>{label}</PrimaryButton>;
+const Button = ({ label, onClick }) => {
+  return <PrimaryButton onClick={onClick}>{label}</PrimaryButton>;
 };
 
 export default Button;
