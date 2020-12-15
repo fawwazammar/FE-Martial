@@ -1,11 +1,16 @@
-// import { Home } from '../pages';
+import { Home, Signup } from '../pages';
 
 const routes = [
-  // {
-  //   path: '/',
-  //   component: Home,
-  //   isPublic: true,
-  // },
+  {
+    path: '/signup',
+    component: Signup,
+    isPublic: true,
+  },
+  {
+    path: '/',
+    component: Home,
+    isPublic: false,
+  },
 ];
 
 export default routes;
