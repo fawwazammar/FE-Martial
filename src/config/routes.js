@@ -1,15 +1,28 @@
-// import { Home } from '../pages';
-import { Admin } from '../pages';
+import { Home, Signup, Pasien, Login, Admin } from '../pages';
 
 const routes = [
-  // {
-  //   path: '/',
-  //   component: Home,
-  //   isPublic: true,
-  // },
+  {
+    path: '/login',
+    component: Login,
+    isPublic: true,
+  },
+  {
+    path: '/signup',
+    component: Signup,
+    isPublic: true,
+  },
   {
     path: '/',
     component: Admin,
+  },
+  {
+    path: '/pasien',
+    component: Pasien,
+    isPublic: true,
+  },
+  {
+    path: '/',
+    component: Home,
     isPublic: true,
   },
 ];
