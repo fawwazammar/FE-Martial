@@ -1,2 +1,3 @@
-export { default as imageExample } from './images/image_Example.jpg';
+export * from './icons';
+export * from './images';
 export { default as logo } from './images/logo.png';
