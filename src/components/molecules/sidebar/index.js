@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Modal from 'react-bootstrap/Modal';
+
 import {
   IconDokter,
   IconObat,
@@ -37,9 +39,9 @@ const Title = styled.p`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-bottom: 8px;
   padding: 8px 8px;
-  align-items: center;
   &:hover {
     background-color: #e0e1e6;
     border-radius: 15px;
@@ -56,10 +58,16 @@ const Icon = styled.img`
 const Label = styled.p`
   font-size: 16px;
   font-weight: bold;
-  color: #393e46;
+  color: #34626c;
+  margin-bottom: 0;
 `;
 
 const Sidebar = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Container>
       <TopContent>
@@ -78,10 +86,37 @@ const Sidebar = () => {
         </ContentWrapper>
       </TopContent>
       <BottomContent>
-        <ContentWrapper>
+        <ContentWrapper onClick={handleShow}>
           <Icon src={IconSignOut} alt="Icon" />
           <Label>Sign Out</Label>
         </ContentWrapper>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          dialogClassName="modal-50w"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Sign Out</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div>
+              <p>Apakah kamu yakin?</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-light"
+                onClick={handleClose}
+              >
+                Cancel
+              </button>
+              <button type="button" className="btn btn-danger">
+                Yes
+              </button>
+            </div>
+          </Modal.Body>
+        </Modal>
       </BottomContent>
     </Container>
   );
