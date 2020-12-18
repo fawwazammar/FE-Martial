@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Card, Container } from 'react-bootstrap';
-// import { swal } from 'sweetalert';
+import Swal from 'sweetalert2';
 import { logo } from '../../assets';
 import { setCookie } from '../../utils/cookie';
 import { authService } from '../../services';
@@ -25,12 +25,19 @@ const Login = () => {
         };
         setCookie('data', JSON.stringify(cookieUser), 10000);
         setCookie('token', JSON.stringify(cookieToken), 10000);
-        // swal('Good job!', 'You clicked the button!', 'success');
         window.location.replace('/admin');
       })
       .catch(() => {
         // console.log(err);
-        window.location.replace('/signup');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops..',
+          html: 'Username atau Password yang anda masukkan salah',
+          timer: 3000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+        });
+        // window.location.replace('/');
       })
       .finally(() => {
         setLoginLoading(false);
