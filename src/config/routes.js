@@ -12,12 +12,12 @@ const routes = [
     isPublic: true,
   },
   {
-    path: '/admin/obat',
+    path: '/obat',
     component: Obat,
     isPublic: true,
   },
   {
-    path: '/admin/rumahsakit',
+    path: '/rumahsakit',
     component: RumahSakit,
     isPublic: true,
   },

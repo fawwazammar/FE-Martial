@@ -112,6 +112,15 @@ const Obat = () => {
               <ActionButton label="Hapus" onClick={handleDeleteShow} />
             </Action>
           </TitleWrapper>
+          <TitleWrapper>
+            <Data>
+              <Label>Farhan Alfariqi</Label>
+            </Data>
+            <Action>
+              <ActionButton label="Edit" onClick={handleEditShow} />
+              <ActionButton label="Hapus" onClick={handleDeleteShow} />
+            </Action>
+          </TitleWrapper>
           <Modal
             show={editModal}
             onHide={handleEditClose}

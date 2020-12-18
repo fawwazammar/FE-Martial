@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 
 import {
   IconDokter,
@@ -76,14 +77,18 @@ const Sidebar = () => {
           <Icon src={IconDokter} alt="Icon" />
           <Label>Dokter</Label>
         </ContentWrapper>
-        <ContentWrapper>
-          <Icon src={IconRumahSakit} alt="Icon" />
-          <Label>Rumah Sakit</Label>
-        </ContentWrapper>
-        <ContentWrapper>
-          <Icon src={IconObat} alt="Icon" />
-          <Label>Obat</Label>
-        </ContentWrapper>
+        <Link to="/rumahsakit">
+          <ContentWrapper>
+            <Icon src={IconRumahSakit} alt="Icon" />
+            <Label>Rumah Sakit</Label>
+          </ContentWrapper>
+        </Link>
+        <Link to="/obat">
+          <ContentWrapper>
+            <Icon src={IconObat} alt="Icon" />
+            <Label>Obat</Label>
+          </ContentWrapper>
+        </Link>
       </TopContent>
       <BottomContent>
         <ContentWrapper onClick={handleShow}>
