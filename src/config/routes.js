@@ -12,18 +12,19 @@ const routes = [
     isPublic: true,
   },
   {
-    path: '/',
+    path: '/admin',
     component: Admin,
+    isPublic: false,
   },
   {
     path: '/pasien',
     component: Pasien,
-    isPublic: true,
+    isPublic: false,
   },
   {
     path: '/',
     component: Home,
-    isPublic: true,
+    isPublic: false,
   },
 ];
 

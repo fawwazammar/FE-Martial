@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Card, Container } from 'react-bootstrap';
+// import { swal } from 'sweetalert';
 import { logo } from '../../assets';
 import { setCookie } from '../../utils/cookie';
 import { authService } from '../../services';
@@ -15,18 +16,21 @@ const Login = () => {
     authService
       .login(username, password)
       .then((res) => {
-        console.log(res);
-        const cookieToken = res.token;
+        // console.log(JSON.stringify(res.data.token));
+        const cookieToken = res.data.token;
+        // const cookieUser = res.data.role_id;
         const cookieUser = {
-          userId: res.userId,
-          username: res.username,
+          role: res.data.role,
+          role_id: res.data.role_id,
         };
-        setCookie('userData', JSON.stringify(cookieUser), 10000);
+        setCookie('data', JSON.stringify(cookieUser), 10000);
         setCookie('token', JSON.stringify(cookieToken), 10000);
-        window.location.replace('/home');
+        // swal('Good job!', 'You clicked the button!', 'success');
+        window.location.replace('/admin');
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        // console.log(err);
+        window.location.replace('/signup');
       })
       .finally(() => {
         setLoginLoading(false);
