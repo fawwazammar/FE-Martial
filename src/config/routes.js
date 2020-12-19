@@ -1,4 +1,4 @@
-import { Home, Signup, Pasien, Login, Admin } from '../pages';
+import { Home, Signup, Pasien, Login, Obat, RumahSakit } from '../pages';
 
 const routes = [
   {
@@ -12,9 +12,14 @@ const routes = [
     isPublic: true,
   },
   {
-    path: '/admin',
-    component: Admin,
-    isPublic: false,
+    path: '/obat',
+    component: Obat,
+    isPublic: true,
+  },
+  {
+    path: '/rumahsakit',
+    component: RumahSakit,
+    isPublic: true,
   },
   {
     path: '/pasien',

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-bootstrap/Modal';
+import { Form } from 'react-bootstrap';
+
 import { Button } from '..';
 
 const Container = styled.div`
@@ -16,21 +18,9 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-size: 32px;
+  margin-bottom: 0;
   font-weight: bold;
   color: #393e46;
-`;
-const Label = styled.p`
-  font-size: 16px;
-  font-weight: bold;
-  color: #34626c;
-`;
-
-const InputField = styled.input`
-  border: none;
-  border-bottom: 2px solid #839b97;
-  padding: 10px;
-  width: 100%;
-  font-size: 21px;
 `;
 
 const SubmitButton = styled.input`
@@ -48,7 +38,9 @@ const SubmitButton = styled.input`
   }
 `;
 
-const Header = ({ title }) => {
+const HeaderObat = ({ title }) => {
+  const [name, setName] = useState('');
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -71,10 +63,17 @@ const Header = ({ title }) => {
           <div>
             <p>Silahkan isi form berikut</p>
             <form>
-              <label htmlFor="name">
-                <Label>Nama :</Label>
-                <InputField type="text" />
-              </label>
+              <Form.Group id="name">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+              </Form.Group>
               <SubmitButton type="submit" value="Submit" />
             </form>
           </div>
@@ -84,4 +83,4 @@ const Header = ({ title }) => {
   );
 };
 
-export default Header;
+export default HeaderObat;

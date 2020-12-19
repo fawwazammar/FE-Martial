@@ -1,4 +1,5 @@
-export { default as Admin } from './admin';
+export { default as RumahSakit } from './rumahSakit';
+export { default as Obat } from './obat';
 export { default as Home } from './home';
 export { default as Login } from './login';
 export { default as Signup } from './signup';
