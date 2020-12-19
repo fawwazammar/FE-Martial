@@ -1,5 +1,5 @@
 export default {
-  LOGIN: '/login',
+  LOGIN: '/auth/login',
   DRUG: '/drug',
   PATIENT: '/patient',
 };
