@@ -25,7 +25,7 @@ const Login = () => {
         };
         setCookie('data', JSON.stringify(cookieUser), 10000);
         setCookie('token', JSON.stringify(cookieToken), 10000);
-        window.location.replace('/admin');
+        window.location.replace('/home');
       })
       .catch(() => {
         // console.log(err);
