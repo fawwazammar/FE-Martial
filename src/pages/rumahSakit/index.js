@@ -52,7 +52,10 @@ const RumahSakit = () => {
         <HeaderRumahSakit title="Pasien" />
         <ContentWrapper>
           <Icon src={IconDokter} alt="Icon" />
-          <Label>{lengthData}</Label>
+          <div>
+            <Label>Jumlah Pasien :</Label>
+            <Label>{lengthData}</Label>
+          </div>
         </ContentWrapper>
         <Container>
           <TitleWrapper>
