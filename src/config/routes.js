@@ -1,4 +1,12 @@
-import { Home, Signup, Pasien, Login, Obat, RumahSakit } from '../pages';
+import {
+  Home,
+  Signup,
+  Pasien,
+  Login,
+  Obat,
+  RumahSakit,
+  Dokter,
+} from '../pages';
 
 const routes = [
   {
@@ -9,6 +17,11 @@ const routes = [
   {
     path: '/signup',
     component: Signup,
+    isPublic: true,
+  },
+  {
+    path: '/dokter',
+    component: Dokter,
     isPublic: true,
   },
   {
