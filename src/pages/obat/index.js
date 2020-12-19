@@ -1,9 +1,138 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Form } from 'react-bootstrap';
+import styled from 'styled-components';
 
 import { ActionButton, HeaderObat, Sidebar } from '../../components';
+import { drugService } from '../../services';
+
+const Obat = () => {
+  const [hospitalName, setHospitalname] = useState('');
+  const [drugs, setDrugs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+
+  const handleEditClose = () => setEditModal(false);
+  const handleEditShow = () => setEditModal(true);
+
+  const handleDeleteClose = () => setDeleteModal(false);
+  const handleDeleteShow = () => setDeleteModal(true);
+
+  const getAllDrugs = () => {
+    drugService
+      .getAllDrugs()
+      .then((res) => {
+        console.log(res);
+        setDrugs(res);
+        // console.log(res[1]);
+        // console.log(drugs);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(!isLoading);
+      });
+  };
+
+  useEffect(() => {
+    getAllDrugs();
+  }, []);
+
+  return (
+    <Pages>
+      <LeftContent>
+        <Sidebar />
+      </LeftContent>
+      <RightContent>
+        <HeaderObat title="Obat" />
+        <Container>
+          <TitleWrapper>
+            <Data>
+              <Title>Nama</Title>
+            </Data>
+            <Action>
+              <Title style={{ flex: 1, textAlign: 'center' }}>Aksi</Title>
+            </Action>
+          </TitleWrapper>
+          {drugs.map((drug) => {
+            return (
+              <TitleWrapper key={drug.id}>
+                <Data>
+                  <Label>{drug.name}</Label>
+                </Data>
+                <Action>
+                  <ActionButton label="Edit" onClick={handleEditShow} />
+                  <ActionButton label="Hapus" onClick={handleDeleteShow} />
+                </Action>
+              </TitleWrapper>
+            );
+          })}
+          <Modal
+            show={editModal}
+            onHide={handleEditClose}
+            backdrop="static"
+            dialogClassName="modal-50w"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Edit Obat</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div>
+                <p>Silahkan isi form berikut</p>
+                <form>
+                  <Form.Group id="hospitalName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      type="text"
+                      required
+                      value={hospitalName}
+                      onChange={(e) => {
+                        setHospitalname(e.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                  <SubmitButton type="submit" value="Submit" />
+                </form>
+              </div>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={deleteModal}
+            onHide={handleDeleteClose}
+            backdrop="static"
+            dialogClassName="modal-50w"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Hapus Obat</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div>
+                <p>Apakah kamu yakin?</p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  onClick={handleDeleteClose}
+                >
+                  Cancel
+                </button>
+                <button type="button" className="btn btn-danger">
+                  Yes
+                </button>
+              </div>
+            </Modal.Body>
+          </Modal>
+        </Container>
+      </RightContent>
+    </Pages>
+  );
+};
+
+export default Obat;
 
 const Pages = styled.div`
   display: flex;
@@ -75,112 +204,3 @@ const SubmitButton = styled.input`
     background-color: #75b8b6;
   }
 `;
-const Obat = () => {
-  const [name, setName] = useState('');
-
-  const [editModal, setEditModal] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(false);
-
-  const handleEditClose = () => setEditModal(false);
-  const handleEditShow = () => setEditModal(true);
-
-  const handleDeleteClose = () => setDeleteModal(false);
-  const handleDeleteShow = () => setDeleteModal(true);
-
-  return (
-    <Pages>
-      <LeftContent>
-        <Sidebar />
-      </LeftContent>
-      <RightContent>
-        <HeaderObat title="Obat" />
-        <Container>
-          <TitleWrapper>
-            <Data>
-              <Title>Nama</Title>
-            </Data>
-            <Action>
-              <Title style={{ flex: 1, textAlign: 'center' }}>Aksi</Title>
-            </Action>
-          </TitleWrapper>
-          <TitleWrapper>
-            <Data>
-              <Label>Farhan Alfariqi</Label>
-            </Data>
-            <Action>
-              <ActionButton label="Edit" onClick={handleEditShow} />
-              <ActionButton label="Hapus" onClick={handleDeleteShow} />
-            </Action>
-          </TitleWrapper>
-          <TitleWrapper>
-            <Data>
-              <Label>Farhan Alfariqi</Label>
-            </Data>
-            <Action>
-              <ActionButton label="Edit" onClick={handleEditShow} />
-              <ActionButton label="Hapus" onClick={handleDeleteShow} />
-            </Action>
-          </TitleWrapper>
-          <Modal
-            show={editModal}
-            onHide={handleEditClose}
-            backdrop="static"
-            dialogClassName="modal-50w"
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Edit Obat</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div>
-                <p>Silahkan isi form berikut</p>
-                <form>
-                  <Form.Group id="name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      required
-                      value={name}
-                      onChange={(e) => {
-                        setName(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <SubmitButton type="submit" value="Submit" />
-                </form>
-              </div>
-            </Modal.Body>
-          </Modal>
-          <Modal
-            show={deleteModal}
-            onHide={handleDeleteClose}
-            backdrop="static"
-            dialogClassName="modal-50w"
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Hapus Obat</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div>
-                <p>Apakah kamu yakin?</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-light"
-                  onClick={handleDeleteClose}
-                >
-                  Cancel
-                </button>
-                <button type="button" className="btn btn-danger">
-                  Yes
-                </button>
-              </div>
-            </Modal.Body>
-          </Modal>
-        </Container>
-      </RightContent>
-    </Pages>
-  );
-};
-
-export default Obat;
