@@ -73,10 +73,12 @@ const Sidebar = () => {
     <Container>
       <TopContent>
         <Title>Administrator</Title>
-        <ContentWrapper>
-          <Icon src={IconDokter} alt="Icon" />
-          <Label>Dokter</Label>
-        </ContentWrapper>
+        <Link to="/dokter">
+          <ContentWrapper>
+            <Icon src={IconDokter} alt="Icon" />
+            <Label>Dokter</Label>
+          </ContentWrapper>
+        </Link>
         <Link to="/rumahsakit">
           <ContentWrapper>
             <Icon src={IconRumahSakit} alt="Icon" />
