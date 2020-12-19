@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/obat',
     component: Obat,
-    isPublic: true,
+    isPublic: false,
   },
   {
     path: '/rumahsakit',
