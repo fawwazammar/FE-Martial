@@ -24,12 +24,12 @@ const routes = [
   {
     path: '/pasien',
     component: Pasien,
-    isPublic: true,
+    isPublic: false,
   },
   {
     path: '/',
     component: Home,
-    isPublic: true,
+    isPublic: false,
   },
 ];
 
