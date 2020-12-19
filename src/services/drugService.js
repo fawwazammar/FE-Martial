@@ -13,4 +13,8 @@ const postDrug = (name) => {
   return BaseService.post(API.DRUG, { name });
 };
 
-export default { getDrug, getAllDrugs, postDrug };
+const deleteDrug = (_id) => {
+  return BaseService.delete(API.DRUG, { _id });
+};
+
+export default { getDrug, getAllDrugs, postDrug, deleteDrug };

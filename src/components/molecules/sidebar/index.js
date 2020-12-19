@@ -80,7 +80,7 @@ const Sidebar = () => {
         <Link to="/rumahsakit">
           <ContentWrapper>
             <Icon src={IconRumahSakit} alt="Icon" />
-            <Label>Rumah Sakit</Label>
+            <Label>Pasien</Label>
           </ContentWrapper>
         </Link>
         <Link to="/obat">
