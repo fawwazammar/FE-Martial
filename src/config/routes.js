@@ -6,6 +6,7 @@ import {
   Obat,
   RumahSakit,
   Dokter,
+  Transaction,
 } from '../pages';
 
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
   {
     path: '/rumahsakit',
     component: RumahSakit,
+    isPublic: true,
+  },
+  {
+    path: '/transaksi',
+    component: Transaction,
     isPublic: true,
   },
   {

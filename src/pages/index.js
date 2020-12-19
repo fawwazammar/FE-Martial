@@ -5,3 +5,4 @@ export { default as Login } from './login';
 export { default as Signup } from './signup';
 export { default as Pasien } from './pasien';
 export { default as Dokter } from './dokter';
+export { default as Transaction } from './transaction';
